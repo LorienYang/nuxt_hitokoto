@@ -10,6 +10,8 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@elysiajs/eden": "^1.4.6",
+    "@elysiajs/static": "^1.4.7",
     "@nuxt/content": "3.9.0",
     "@nuxt/eslint": "1.12.1",
     "@nuxt/hints": "1.0.0-alpha.3",
@@ -22,8 +24,10 @@
     "@nuxt/ui": "4.2.1",
     "@unhead/vue": "^2.0.3",
     "better-sqlite3": "^12.5.0",
+    "elysia": "^1.4.19",
     "eslint": "^9.0.0",
     "nuxt": "^4.2.2",
+    "nuxt-elysia": "^0.2.0",
     "typescript": "^5.6.3",
     "vue": "^3.5.25",
     "vue-router": "^4.6.4"

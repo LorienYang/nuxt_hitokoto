@@ -2,18 +2,34 @@
   {
     "version": "V1.0",
     "min_Sentences": "1",
-    "max_Sentences": "2"
+    "max_Sentences": "3"
   },
   {
     "id": "1",
-    "hitokoto": "@泡泡猪(金蛋人格) 蛋孝子筛选大会"
+    "hitokoto": "@泡泡猪(金蛋人格) 蛋孝子筛选大会",
+    "from": "QQ",
+    "from_who": "Star_On_Water",
+    "creator": "Star_On_Water"
   },
   {
     "id": "2",
-    "hitokoto": "@老师好我叫史蒂夫 用美国产的跳蛋用中毒了"
+    "hitokoto": "@老师好我叫史蒂夫 用美国产的跳蛋用中毒了",
+    "from": "QQ",
+    "from_who": "Star_On_Water",
+    "creator": "Star_On_Water"
   },
   {
     "id": "3",
-    "hitokoto": "神人发言"
+    "hitokoto": "神人发言",
+    "from": "QQ",
+    "from_who": "Star_On_Water",
+    "creator": "Star_On_Water"
+  },
+  {
+    "id": "4",
+    "hitokoto": "我……我是男……男生！！！只是打……打字有些习……习惯！不是女生！！！",
+    "from": "QQ",
+    "from_who": "Star_On_Water",
+    "creator": "Star_On_Water"
   }
 ]

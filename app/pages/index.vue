@@ -1,12 +1,22 @@
 <script setup lang="ts">
+const { user, clear: clearSession } = useUserSession()
+
+async function logout () {
+    await clearSession()
+}
+const name = user.value?.name ?? "陌生人"
+console.log(name)
 </script>
 
 <template>
     <div class="main">
-        <h1>您好</h1>
+        <h1>您好 {{name}}</h1>
         <div class="vp-footer-right">
             <ul class="vp-footer-links">
                 <li><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" class="vp-footer-link">浙ICP备2025171659号-2</a></li>
+                <button @click="logout">
+                    Logout
+                </button>
             </ul>
         </div>
     </div>

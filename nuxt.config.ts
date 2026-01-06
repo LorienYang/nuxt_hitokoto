@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxt/ui',
+    'nuxt-auth-utils'
   ],
   runtimeConfig:{
     dbURL:(process.env.NUXT_DBURL)

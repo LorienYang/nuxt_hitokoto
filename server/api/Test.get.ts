@@ -5,21 +5,20 @@ import {MongoClient} from 'mongodb';
 const DB_config = useRuntimeConfig()
 
 export default defineEventHandler(async (event)=>{
-    const URL:(string) = DB_config.dbURL
-    const DBClient = new MongoClient(URL)
-
+    const DBClient = new MongoClient(DB_config.dbURL)
     const {C} = getQuery(event)
-    const database = DBClient.db('Users')
+
     const Sentences_DB = DBClient.db('Sentences')
-    const data = await database.collection('user').find({},{projection:{_id:0,name:0,from_who:0}}).toArray()
-    const allow= data.map(item => item.type)
-    console.log(allow)
+    const Sentences_Config = await Sentences_DB.collection('config').find().toArray()
+    const allow = Sentences_Config.map(item => item.UserType)
     if (allow.includes(C)){
-        return true
-        // const Max_Sentences = await Sentences_DB.collection(`${C}`).find({},{projection:{id:1}}).sort({id:-1}).limit(1).toArray()
-        // const maxVal = Max_Sentences.map(Number => Number.id)
-        // console.log(maxVal)
-        // return (randomInt(1,Number(maxVal)))
+        const Sentences = await Sentences_DB.collection(`${C}`).find().toArray()
+        const maxVal = Sentences.length - 1
+        return (Sentences[randomInt(0,Number(maxVal))])
+    }
+    else return {
+        "id":114514,
+        "hitokoto":"你在访问什么呢？"
     }
 
     function randomInt(min:number,max:number) {

@@ -12,5 +12,8 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxt/ui',
   ],
+  runtimeConfig:{
+    dbURL:(process.env.NUXT_DBURL)
+  },
   css:['~/assets/css/style.css']
 })

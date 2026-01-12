@@ -4,6 +4,7 @@ import type { FormSubmitEvent, AuthFormField } from '@nuxt/ui'
 import { FetchError } from 'ofetch'
 
 const emit = defineEmits(['success'])
+const isLoading = ref(false)
 
 const toast = useToast()
 
@@ -60,6 +61,7 @@ const schema = z.object({
 type Schema = z.infer<typeof schema>
 
 async function Onsubmit(payload: FormSubmitEvent<Schema>){
+    isLoading.value = true
     try {
         await $fetch('/api/v2/hitokoto/add', {
             method: 'POST',
@@ -70,8 +72,8 @@ async function Onsubmit(payload: FormSubmitEvent<Schema>){
                 "types": `${payload.data.types.value}`
             }
         })
-        toast.add({ title: '系统提示',description:'提交成功',color: 'success' })
         emit('success')
+        toast.add({ title: '系统提示',description:'提交成功',color: 'success' })
     } catch (err) {
         if (err instanceof FetchError){
             toast.add({
@@ -80,6 +82,8 @@ async function Onsubmit(payload: FormSubmitEvent<Schema>){
                 color: 'error'
             })
         }
+    }finally {
+        isLoading.value = false
     }
 }
 </script>
@@ -91,6 +95,7 @@ async function Onsubmit(payload: FormSubmitEvent<Schema>){
                 title="提交一言"
                 description="分享那些直击心灵的文字"
                 icon="i-lucide-feather"
+                :loading="isLoading"
                 :fields="item"
                 :submit="{
         label: '提交一言',

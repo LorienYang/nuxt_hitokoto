@@ -3,6 +3,8 @@ import * as z from 'zod'
 import type { FormSubmitEvent, AuthFormField } from '@nuxt/ui'
 import { FetchError } from 'ofetch'
 
+const emit = defineEmits(['success'])
+
 const toast = useToast()
 
 // --- 保持业务逻辑配置不动 ---
@@ -69,6 +71,7 @@ async function Onsubmit(payload: FormSubmitEvent<Schema>){
             }
         })
         toast.add({ title: '系统提示',description:'提交成功',color: 'success' })
+        emit('success')
     } catch (err) {
         if (err instanceof FetchError){
             toast.add({

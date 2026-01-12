@@ -83,7 +83,7 @@ async function toggleOpen() {
                     />
                     <UModal v-model:open="isOpen">
                         <template #content>
-                            <Upload_Sentences/>
+                            <Upload_Sentences @success="isOpen = false" />
                         </template>
                     </UModal>
                 </UTooltip>

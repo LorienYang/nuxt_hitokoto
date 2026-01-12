@@ -1,59 +1,42 @@
-<script setup lang="ts">
-const { user, clear: clearSession } = useUserSession()
-
-async function logout () {
-    await clearSession()
-}
-const name = user.value?.name ?? "陌生人"
-console.log(name)
-</script>
-
 <template>
-    <div class="main">
-        <h1>您好 {{name}}</h1>
-        <div class="vp-footer-right">
-            <ul class="vp-footer-links">
-                <li><a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" class="vp-footer-link">浙ICP备2025171659号-2</a></li>
-                <button @click="logout">
-                    Logout
-                </button>
-            </ul>
+    <div class="py-16 md:py-24 flex flex-col items-center">
+        <div class="mb-8 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 flex items-center gap-2">
+            <span class="flex h-2 w-2 rounded-full bg-primary animate-pulse"/>
+            <span class="text-xs font-medium text-primary tracking-wide uppercase">System Online</span>
+        </div>
+
+        <div class="max-w-3xl text-center space-y-6 px-4">
+            <h1 class="text-4xl md:text-7xl font-black tracking-tight text-gray-900 dark:text-white">
+                NUXT · <span class="text-primary">Hitokoto</span>
+            </h1>
+        </div>
+        <div class="mt-12 flex flex-col sm:flex-row items-center gap-4">
+            <UButton
+                    to="/user/login"
+                    label="开启使用"
+                    size="xl"
+                    icon="i-lucide-sparkles"
+                    class="rounded-full px-10 shadow-lg shadow-primary/20"
+            />
+        </div>
+
+        <div class="mt-24 opacity-30 select-none">
+            <div class="flex items-center gap-4 text-gray-400">
+                <div class="h-px w-12 bg-current"/>
+                <UIcon name="i-lucide-feather" class="w-5 h-5" />
+                <div class="h-px w-12 bg-current"/>
+            </div>
         </div>
     </div>
 </template>
 
-<style scoped>
-.main {
-    padding: 0 50px 0 50px;
-}
-h1 {
-    font-size: 4.5em;
-    font-weight: 500;
-    margin-bottom: 0;
-}
-p {
-    font-size: 1.6em;
-    font-weight: 300;
-    line-height: 1.4;
-}
-a {
-    text-decoration: none;
-    color: #121314;
-    position: relative;
-}
-a:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 60%;
-    left: -0.1em;
-    right: -0.1em;
-    bottom: 0;
-    transition: top 200ms cubic-bezier(0, .8, .13, 1);
-    background-color: rgba(79,192,141,0.5);
-}
-a:hover:after {
-    top: 0;
-}
+<script setup lang="ts">
+</script>
 
+<style scoped>
+:deep(.u-container) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 </style>

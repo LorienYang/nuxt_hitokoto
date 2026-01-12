@@ -1,5 +1,5 @@
-export default defineEventHandler(async () => {
-    console.log('[DB URL]', useRuntimeConfig().DB_URL)
+export default defineEventHandler(async (event) => {
+    console.log('[DB URL]', useRuntimeConfig(event).DB_URL)
 
     try {
         const mongo = await getMongo()

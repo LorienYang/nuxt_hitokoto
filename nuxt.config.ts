@@ -20,8 +20,7 @@ export default defineNuxtConfig({
     port: 3000,
   },
   runtimeConfig:{
-    sessionPassword:process.env.NUXT_SESSION_PASSWORD,
-    DB_URL:process.env.NUXT_DB_URL
+    DB_URL:''
   },
   css:[
       '~/assets/css/style.css',

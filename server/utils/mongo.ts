@@ -10,6 +10,7 @@ export async function getMongo(): Promise<Db> {
     const config = useRuntimeConfig()
 
     const uri = config.DB_URL
+    console.log(`MongoDB URI: ${uri}`)
     if (!uri) {
         throw new Error('Missing runtimeConfig.dbUrl')
     }

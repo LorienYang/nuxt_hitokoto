@@ -8,7 +8,7 @@ module.exports = {
             env: {
                 NODE_ENV: 'production',
                 PORT: 3000,
-                NUXT_MONGO_URI: ''
+                NUXT_DB_URI: 'mongodb://localhost:27017/Hitokoto'
             }
         }
     ]
